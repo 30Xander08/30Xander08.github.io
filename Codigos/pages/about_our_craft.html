@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Arte - NoteCraft | Donde la Tradición Artesanal se Encuentra con la Innovación</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <meta name="description" content="Descubre la historia detrás de Agenda Craft, nuestros artesanos expertos y el proceso de creación que hace únicas nuestras agendas personalizadas.">
+  
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fagendacra6365back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-background">
+    <!-- Navigation Header -->
+    <nav class="bg-surface/95 backdrop-blur-sm fixed w-full top-0 z-50 border-b border-secondary-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="homepage.html" class="flex items-center space-x-2">
+                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
+                        <span class="font-playfair text-xl font-bold text-primary">NoteCraft</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-primary transition-craft">Inicio</a>
+                    <a href="custom_agenda_builder.html" class="text-text-secondary hover:text-primary transition-craft">Crear Agenda</a>
+                    <a href="product_collections.html" class="text-text-secondary hover:text-primary transition-craft">Colecciones</a>
+                    <a href="gallery_inspiration.html" class="text-text-secondary hover:text-primary transition-craft">Galería</a>
+                    <a href="about_our_craft.html" class="text-text-primary hover:text-primary transition-craft font-medium">Nuestro Arte</a>
+                    <a href="customer_dashboard.html" class="btn-primary">Mi Cuenta</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-text-primary hover:text-primary transition-craft">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-surface border-t border-secondary-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="homepage.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-craft">Inicio</a>
+                <a href="custom_agenda_builder.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-craft">Crear Agenda</a>
+                <a href="product_collections.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-craft">Colecciones</a>
+                <a href="gallery_inspiration.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-craft">Galería</a>
+                <a href="about_our_craft.html" class="block px-3 py-2 text-text-primary font-medium">Nuestro Arte</a>
+                <a href="customer_dashboard.html" class="block px-3 py-2 text-primary font-medium">Mi Cuenta</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1691438000323-f0dc17c29d9d" 
+                 alt="Artisan craftsperson carefully hand-binding leather agenda with traditional bookbinding tools in warm workshop lighting" 
+                 class="w-full h-full object-cover"
+                 onerror="this.src='https://images.pexels.com/photos/6373478/pexels-photo-6373478.jpeg?auto=compress&cs=tinysrgb&w=2940'; this.onerror=null;">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary-900/80 to-primary-700/60"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in">
+                    Donde la <span class="text-accent-300">Tradición</span> se Encuentra con la <span class="text-accent-300">Innovación</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-secondary-100 mb-8 animate-slide-up">
+                    Cada agenda cuenta una historia de dedicación artesanal, materiales excepcionales y el compromiso de crear algo verdaderamente único para ti.
+                </p>
+                
+                <!-- Interactive Timeline Navigation -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12 animate-scale-in">
+                    <button onclick="scrollToSection('origin')" class="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/30 transition-all duration-300 border border-white/30">
+                        Nuestro Origen
+                    </button>
+                    <button onclick="scrollToSection('artisans')" class="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/30 transition-all duration-300 border border-white/30">
+                        Nuestros Artesanos
+                    </button>
+                    <button onclick="scrollToSection('process')" class="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/30 transition-all duration-300 border border-white/30">
+                        Nuestro Proceso
+                    </button>
+                    <button onclick="scrollToSection('sustainability')" class="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/30 transition-all duration-300 border border-white/30">
+                        Sostenibilidad
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Brand Origin Story -->
+    <section id="origin" class="py-20 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <h2 class="font-playfair text-4xl md:text-5xl font-bold text-text-primary mb-8">
+                        Nuestra Historia Comenzó con una <span class="text-primary">Pasión</span>
+                    </h2>
+                    <div class="space-y-6 text-lg text-text-secondary">
+                        <p>
+                            En 2018, nuestra fundadora Daniela Carreño se encontraba en una pequeña librería de Lima cuando descubrió un cuaderno artesanal que cambiaría su vida. La textura del papel, el aroma del cuero genuino y la atención al detalle la inspiraron a crear algo único.
+                        </p>
+                        <p>
+                            "Me di cuenta de que en un mundo cada vez más digital, las personas anhelaban algo tangible, algo que reflejara su personalidad y les ayudara a conectar con sus objetivos de manera más profunda", recuerda Daniela.
+                        </p>
+                        <p>
+                            Así nació NoteCraft: la intersección perfecta entre funcionalidad y expresión personal, donde cada agenda no es solo una herramienta de organización, sino una extensión de quien eres.
+                        </p>
+                    </div>
+                    
+                    <!-- Founder Quote -->
+                    <div class="mt-8 p-6 bg-primary-50 rounded-2xl border-l-4 border-primary">
+                        <blockquote class="text-text-primary italic text-lg">
+                            "Creemos que tu agenda debe ser tan única como tus sueños. Cada página que diseñamos es una invitación a escribir tu propia historia."
+                        </blockquote>
+                        <cite class="block mt-4 text-primary font-semibold">— Daniela Carreño, Fundadora</cite>
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1691438000323-f0dc17c29d9d" 
+                             alt="Elena Martínez, founder of Agenda Craft, smiling warmly while holding a handcrafted leather agenda in her workshop" 
+                             class="w-full h-96 object-cover rounded-2xl craft-shadow-lg"
+                             onerror="this.src='https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg'; this.onerror=null;">
+                        <div class="absolute -bottom-6 -right-6 bg-accent p-4 rounded-2xl craft-shadow">
+                            <div class="text-white text-center">
+                                <div class="text-2xl font-bold">2018</div>
+                                <div class="text-sm">Fundación</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Timeline -->
+    <section class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-text-primary mb-6">
+                    Nuestra Evolución
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Un viaje de crecimiento, innovación y compromiso constante con la excelencia artesanal.
+                </p>
+            </div>
+
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-primary-200"></div>
+                
+                <!-- Timeline Items -->
+                <div class="space-y-16">
+                    <!-- 2018 -->
+                    <div class="flex items-center">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="card hover:craft-shadow-lg transition-all duration-300">
+                                <h3 class="font-playfair text-2xl font-bold text-primary mb-2">2018</h3>
+                                <h4 class="text-lg font-semibold text-text-primary mb-3">Los Primeros Pasos</h4>
+                                <p class="text-text-secondary">Daniela funda NoteCraft en su pequeño taller de Chancay, creando las primeras 50 agendas artesanales.</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white craft-shadow"></div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+
+                    <!-- 2019 -->
+                    <div class="flex items-center">
+                        <div class="w-1/2 pr-8"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-accent rounded-full border-4 border-white craft-shadow"></div>
+                        <div class="w-1/2 pl-8">
+                            <div class="card hover:craft-shadow-lg transition-all duration-300">
+                                <h3 class="font-playfair text-2xl font-bold text-accent mb-2">2019</h3>
+                                <h4 class="text-lg font-semibold text-text-primary mb-3">Expansión Digital</h4>
+                                <p class="text-text-secondary">Lanzamiento de nuestra plataforma online y las primeras herramientas de personalización digital.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2020 -->
+                    <div class="flex items-center">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="card hover:craft-shadow-lg transition-all duration-300">
+                                <h3 class="font-playfair text-2xl font-bold text-primary mb-2">2020</h3>
+                                <h4 class="text-lg font-semibold text-text-primary mb-3">Compromiso Sostenible</h4>
+                                <p class="text-text-secondary">Implementación de prácticas 100% sostenibles y certificación de materiales ecológicos.</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-success rounded-full border-4 border-white craft-shadow"></div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+
+                    <!-- 2023 -->
+                    <div class="flex items-center">
+                        <div class="w-1/2 pr-8"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-accent rounded-full border-4 border-white craft-shadow"></div>
+                        <div class="w-1/2 pl-8">
+                            <div class="card hover:craft-shadow-lg transition-all duration-300">
+                                <h3 class="font-playfair text-2xl font-bold text-accent mb-2">2023</h3>
+                                <h4 class="text-lg font-semibold text-text-primary mb-3">Reconocimiento Internacional</h4>
+                                <p class="text-text-secondary">Premio "Mejor Innovación Artesanal" y expansión a mercados europeos.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2025 -->
+                    <div class="flex items-center">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="card hover:craft-shadow-lg transition-all duration-300 border-2 border-primary">
+                                <h3 class="font-playfair text-2xl font-bold text-primary mb-2">2025</h3>
+                                <h4 class="text-lg font-semibold text-text-primary mb-3">El Futuro es Hoy</h4>
+                                <p class="text-text-secondary">Más de 15,000 agendas creadas y una comunidad global de planificadores conscientes.</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-primary rounded-full border-4 border-white craft-shadow animate-pulse"></div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artisan Profiles -->
+    <section id="artisans" class="py-20 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-text-primary mb-6">
+                    Los Maestros Detrás del Arte
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Conoce a los artesanos expertos que dan vida a cada agenda con sus manos expertas y su pasión por la perfección.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Artisan 1 -->
+                <div class="card hover:craft-shadow-lg transition-all duration-300 group">
+                    <div class="relative overflow-hidden rounded-xl mb-6">
+                        <img src="https://images.unsplash.com/photo-1611858288848-8d864a7a8738" 
+                             alt="Carlos Mendoza, master leather craftsman, working on hand-stitching agenda covers with traditional tools" 
+                             class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                             onerror="this.src='https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=2940'; this.onerror=null;">
+                        <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Maestro Artesano
+                        </div>
+                    </div>
+                    <h3 class="font-playfair text-2xl font-bold text-text-primary mb-2">Carlos Mendoza</h3>
+                    <p class="text-accent font-semibold mb-4">Especialista en Encuadernación</p>
+                    <p class="text-text-secondary mb-4">
+                        Con más de 20 años de experiencia, Carlos domina las técnicas tradicionales de encuadernación y cosido a mano que dan vida a nuestras cubiertas de cuero.
+                    </p>
+                    <div class="flex items-center text-sm text-text-secondary">
+                        <svg class="w-4 h-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        20+ años de experiencia
+                    </div>
+                </div>
+
+                <!-- Artisan 2 -->
+                <div class="card hover:craft-shadow-lg transition-all duration-300 group">
+                    <div class="relative overflow-hidden rounded-xl mb-6">
+                        <img src="https://images.unsplash.com/photo-1646617747566-00a06a0a932e" 
+                             alt="María García, paper specialist, carefully selecting and preparing premium paper sheets for agenda pages" 
+                             class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                             onerror="this.src='https://images.pixabay.com/photo/2017/08/01/08/29/woman-2563491_1280.jpg'; this.onerror=null;">
+                        <div class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Especialista
+                        </div>
+                    </div>
+                    <h3 class="font-playfair text-2xl font-bold text-text-primary mb-2">María García</h3>
+                    <p class="text-accent font-semibold mb-4">Experta en Papel Artesanal</p>
+                    <p class="text-text-secondary mb-4">
+                        María selecciona y prepara cada tipo de papel con meticulosa atención, asegurando la textura perfecta para cada estilo de escritura.
+                    </p>
+                    <div class="flex items-center text-sm text-text-secondary">
+                        <svg class="w-4 h-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        15+ años de experiencia
+                    </div>
+                </div>
+
+                <!-- Artisan 3 -->
+                <div class="card hover:craft-shadow-lg transition-all duration-300 group">
+                    <div class="relative overflow-hidden rounded-xl mb-6">
+                        <img src="https://images.unsplash.com/flagged/photo-1570386244785-ad7a5c139720" 
+                             alt="Diego Ruiz, finishing specialist, applying final touches and quality control to completed agendas" 
+                             class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                             onerror="this.src='https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg'; this.onerror=null;">
+                        <div class="absolute top-4 right-4 bg-secondary-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Control de Calidad
+                        </div>
+                    </div>
+                    <h3 class="font-playfair text-2xl font-bold text-text-primary mb-2">Diego Ruiz</h3>
+                    <p class="text-accent font-semibold mb-4">Maestro en Acabados</p>
+                    <p class="text-text-secondary mb-4">
+                        Diego supervisa cada detalle final, desde el grabado personalizado hasta el empaquetado, garantizando que cada agenda sea perfecta.
+                    </p>
+                    <div class="flex items-center text-sm text-text-secondary">
+                        <svg class="w-4 h-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        12+ años de experiencia
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Testimonial Section -->
+            <div class="mt-16 text-center">
+                <div class="bg-primary-50 rounded-2xl p-8 max-w-4xl mx-auto">
+                    <h3 class="font-playfair text-3xl font-bold text-text-primary mb-6">
+                        Escucha Directamente de Nuestros Artesanos
+                    </h3>
+                    <div class="relative bg-white rounded-xl overflow-hidden craft-shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1655664767329-f560cf1a6e6d" 
+                             alt="Video thumbnail showing artisans working together in the Agenda Craft workshop with play button overlay" 
+                             class="w-full h-64 object-cover"
+                             onerror="this.src='https://images.pexels.com/photos/6373478/pexels-photo-6373478.jpeg?auto=compress&cs=tinysrgb&w=2940'; this.onerror=null;">
+                        <div class="absolute inset-0 bg-primary-900/30 flex items-center justify-center">
+                            <button class="bg-white/90 backdrop-blur-sm rounded-full p-6 hover:bg-white transition-all duration-300 group">
+                                <svg class="w-8 h-8 text-primary group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M8 5v10l8-5-8-5z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary mt-4">
+                        Descubre el proceso artesanal detrás de cada agenda y conoce las historias personales de quienes las crean.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manufacturing Process -->
+    <section id="process" class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-text-primary mb-6">
+                    El Arte de la Creación
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Cada agenda pasa por un meticuloso proceso de 12 pasos que combina técnicas tradicionales con innovación moderna.
+                </p>
+            </div>
+
+            <!-- Process Steps -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Step 1 -->
+                <div class="text-center group">
+                    <div class="relative mb-6">
+                        <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <span class="text-2xl font-bold text-white">1</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1604772152390-8b5351c8dddd" 
+                             alt="Careful selection of premium leather materials with various textures and colors displayed" 
+                             class="w-full h-48 object-cover rounded-xl craft-shadow"
+                             onerror="this.src='https://images.pexels.com/photos/6373478/pexels-photo-6373478.jpeg?auto=compress&cs=tinysrgb&w=2940'; this.onerror=null;">
+                    </div>
+                    <h3 class="font-playfair text-xl font-bold text-text-primary mb-2">Selección de Materiales</h3>
+                    <p class="text-text-secondary">Elegimos cuidadosamente cada pieza de cuero y papel, priorizando calidad y sostenibilidad.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center group">
+                    <div class="relative mb-6">
+                        <div class="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <span class="text-2xl font-bold text-white">2</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1531188929123-0cfa61e6c770" 
+                             alt="Artisan hands cutting leather with precision using traditional cutting tools on wooden workbench" 
+                             class="w-full h-48 object-cover rounded-xl craft-shadow"
+                             onerror="this.src='https://images.pixabay.com/photo/2017/09/05/10/20/business-2717063_1280.jpg'; this.onerror=null;">
+                    </div>
+                    <h3 class="font-playfair text-xl font-bold text-text-primary mb-2">Corte Artesanal</h3>
+                    <p class="text-text-secondary">Cada pieza se corta a mano con precisión milimétrica siguiendo patrones únicos.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center group">
+                    <div class="relative mb-6">
+                        <div class="w-20 h-20 bg-secondary-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <span class="text-2xl font-bold text-white">3</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1599694522028-65abc96dfd2f" 
+                             alt="Detailed view of hand-stitching process with needle and thread creating perfect seams on leather" 
+                             class="w-full h-48 object-cover rounded-xl craft-shadow"
+                             onerror="this.src='https://images.pexels.com/photos/6373478/pexels-photo-6373478.jpeg?auto=compress&cs=tinysrgb&w=2940'; this.onerror=null;">
+                    </div>
+                    <h3 class="font-playfair text-xl font-bold text-text-primary mb-2">Cosido a Mano</h3>
+                    <p class="text-text-secondary">Utilizamos técnicas de cosido tradicionales que garantizan durabilidad y belleza.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="text-center group">
+                    <div class="relative mb-6">
+                        <div class="w-20 h-20 bg-success rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <span class="text-2xl font-bold text-white">4</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1556172732-1d3673e778fb" 
+                             alt="Personalization process showing custom embossing and engraving tools creating unique designs" 
+                             class="w-full h-48 object-cover rounded-xl craft-shadow"
+                             onerror="this.src='https://images.pixabay.com/photo/2017/09/05/10/20/business-2717063_1280.jpg'; this.onerror=null;">
+                    </div>
+                    <h3 class="font-playfair text-xl font-bold text-text-primary mb-2">Personalización</h3>
+                    <p class="text-text-secondary">Aplicamos grabados, monogramas y detalles únicos según tus especificaciones.</p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="text-center group">
+                    <div class="relative mb-6">
+                        <div class="w-20 h-20 bg-warning rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <span class="text-2xl font-bold text-white">5</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1705592886711-ac47f3ecf4f4" 
+                             alt="Quality control specialist examining finished agenda with magnifying glass checking every detail" 
+                             class="w-full h-48 object-cover rounded-xl craft-shadow"
+                             onerror="this.src='https://images.pexels.com/photos/6373478/pexels-photo-6373478.jpeg?auto=compress&cs=tinysrgb&w=2940'; this.onerror=null;">
+                    </div>
+                    <h3 class="font-playfair text-xl font-bold text-text-primary mb-2">Control de Calidad</h3>
+                    <p class="text-text-secondary">Cada agenda pasa por una inspección rigurosa antes de llegar a tus manos.</p>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="text-center group">
+                    <div class="relative mb-6">
+                        <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <span class="text-2xl font-bold text-white">6</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1656408116563-8323e2aa4ad7" 
+                             alt="Elegant packaging process with sustainable materials and careful wrapping of finished agenda" 
+                             class="w-full h-48 object-cover rounded-xl craft-shadow"
+                             onerror="this.src='https://images.pixabay.com/photo/2017/09/05/10/20/business-2717063_1280.jpg'; this.onerror=null;">
+                    </div>
+                    <h3 class="font-playfair text-xl font-bold text-text-primary mb-2">Empaquetado Premium</h3>
+                    <p class="text-text-secondary">Presentamos tu agenda en un empaque sostenible que refleja su valor artesanal.</p>
+                </div>
+            </div>
+
+            <!-- Virtual Factory Tour -->
+            <div class="bg-surface rounded-2xl p-8 text-center">
+                <h3 class="font-playfair text-3xl font-bold text-text-primary mb-6">
+                    Tour Virtual por Nuestro Taller
+                </h3>
+                <p class="text-xl text-text-secondary mb-8 max-w-3xl mx-auto">
+                    Explora nuestro espacio de trabajo y descubre cada rincón donde nacen las agendas más especiales.
+                </p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-xl p-6 craft-shadow hover:craft-shadow-lg transition-all duration-300 cursor-pointer">
+                        <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-playfair text-lg font-bold text-text-primary mb-2">Área de Diseño</h4>
+                        <p class="text-text-secondary text-sm">Donde nacen las ideas y se planifican los diseños únicos.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 craft-shadow hover:craft-shadow-lg transition-all duration-300 cursor-pointer">
+                        <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-playfair text-lg font-bold text-text-primary mb-2">Taller Principal</h4>
+                        <p class="text-text-secondary text-sm">El corazón de la producción donde ocurre la magia artesanal.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 craft-shadow hover:craft-shadow-lg transition-all duration-300 cursor-pointer">
+                        <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-playfair text-lg font-bold text-text-primary mb-2">Control Final</h4>
+                        <p class="text-text-secondary text-sm">Donde cada detalle se revisa antes del empaquetado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Practices -->
+    <section id="sustainability" class="py-20 bg-success-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-text-primary mb-6">
+                    Compromiso con el <span class="text-success">Planeta</span>
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Creemos que la belleza artesanal debe ir de la mano con la responsabilidad ambiental. Cada decisión que tomamos considera su impacto en nuestro planeta.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center mb-16">
+                <div>
+                    <h3 class="font-playfair text-3xl font-bold text-text-primary mb-8">
+                        Nuestros Principios Sostenibles
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-success rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-text-primary mb-2">Materiales Certificados</h4>
+                                <p class="text-text-secondary">100% de nuestros cueros provienen de fuentes certificadas FSC y nuestros papeles son reciclados o de bosques gestionados sosteniblemente.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-success rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-text-primary mb-2">Cero Residuos</h4>
+                                <p class="text-text-secondary">Implementamos un sistema de producción circular donde cada recorte se reutiliza para crear accesorios o se recicla responsablemente.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-success rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-text-primary mb-2">Energía Renovable</h4>
+                                <p class="text-text-secondary">Nuestro taller funciona 100% con energía solar, reduciendo nuestra huella de carbono en un 85% desde 2020.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-success rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-text-primary mb-2">Empaque Biodegradable</h4>
+                                <p class="text-text-secondary">Utilizamos únicamente materiales de empaque compostables y biodegradables, eliminando completamente el plástico.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1668661826488-da284dd0919c" 
+                         alt="Lush green forest with sunlight filtering through trees representing sustainable material sourcing" 
+                         class="w-full h-96 object-cover rounded-2xl craft-shadow-lg"
+                         onerror="this.src='https://images.pexels.com/photos/957024/forest-trees-perspective-bright-957024.jpeg?auto=compress&cs=tinysrgb&w=2940'; this.onerror=null;">
+                    
+                    <!-- Sustainability Stats Overlay -->
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl craft-shadow-lg">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-success mb-1">85%</div>
+                            <div class="text-sm text-text-secondary">Reducción CO₂</div>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -top-6 -right-6 bg-white p-6 rounded-2xl craft-shadow-lg">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-success mb-1">100%</div>
+                            <div class="text-sm text-text-secondary">Energía Solar</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="bg-white rounded-2xl p-8 craft-shadow">
+                <h3 class="font-playfair text-2xl font-bold text-text-primary text-center mb-8">
+                    Nuestras Certificaciones
+                </h3>
+                
+                <div class="grid md:grid-cols-4 gap-8 text-center">
+                    <div class="group">
+                        <div class="w-20 h-20 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-10 h-10 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-text-primary mb-2">FSC Certificado</h4>
+                        <p class="text-sm text-text-secondary">Materiales de bosques responsables</p>
+                    </div>
+
+                    <div class="group">
+                        <div class="w-20 h-20 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-10 h-10 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-text-primary mb-2">ISO 14001</h4>
+                        <p class="text-sm text-text-secondary">Gestión ambiental certificada</p>
+                    </div>
+
+                    <div class="group">
+                        <div class="w-20 h-20 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-10 h-10 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-text-primary mb-2">B-Corp</h4>
+                        <p class="text-sm text-text-secondary">Empresa de beneficio certificada</p>
+                    </div>
+
+                    <div class="group">
+                        <div class="w-20 h-20 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-10 h-10 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-text-primary mb-2">Carbon Neutral</h4>
+                        <p class="text-sm text-text-secondary">Huella de carbono compensada</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Guarantee -->
+    <section class="py-20 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-text-primary mb-6">
+                    Nuestra Garantía de <span class="text-primary">Excelencia</span>
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Respaldamos cada agenda con una garantía integral que refleja nuestra confianza en la calidad artesanal.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Lifetime Craftsmanship -->
+                <div class="card text-center hover:craft-shadow-lg transition-all duration-300">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-xl font-bold text-text-primary mb-4">Garantía Artesanal de por Vida</h3>
+                    <p class="text-text-secondary mb-6">
+                        Si algún defecto de fabricación aparece, reparamos o reemplazamos tu agenda sin costo adicional.
+                    </p>
+                    <div class="text-primary font-semibold">Cobertura Total</div>
+                </div>
+
+                <!-- Satisfaction Promise -->
+                <div class="card text-center hover:craft-shadow-lg transition-all duration-300">
+                    <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-xl font-bold text-text-primary mb-4">Satisfacción 100% Garantizada</h3>
+                    <p class="text-text-secondary mb-6">
+                        30 días para evaluar tu agenda. Si no cumple tus expectativas, te devolvemos el dinero completo.
+                    </p>
+                    <div class="text-accent font-semibold">Sin Preguntas</div>
+                </div>
+
+                <!-- Free Maintenance -->
+                <div class="card text-center hover:craft-shadow-lg transition-all duration-300">
+                    <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-success" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-xl font-bold text-text-primary mb-4">Mantenimiento Gratuito</h3>
+                    <p class="text-text-secondary mb-6">
+                        Servicio de limpieza, acondicionamiento y reparaciones menores sin costo durante el primer año.
+                    </p>
+                    <div class="text-success font-semibold">Servicio Premium</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Press & Awards -->
+    <section class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-text-primary mb-6">
+                    Reconocimiento y <span class="text-primary">Premios</span>
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Nuestro compromiso con la excelencia ha sido reconocido por medios especializados y organizaciones de prestigio.
+                </p>
+            </div>
+
+            <!-- Awards Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-warning-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-10 h-10 text-warning" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-text-primary mb-2">Premio Artesanía 2023</h3>
+                    <p class="text-sm text-text-secondary">Mejor Innovación Artesanal</p>
+                </div>
+
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-10 h-10 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-text-primary mb-2">Sello de Calidad</h3>
+                    <p class="text-sm text-text-secondary">Asociación Española de Artesanos</p>
+                </div>
+
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-10 h-10 text-success" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-text-primary mb-2">Empresa Sostenible</h3>
+                    <p class="text-sm text-text-secondary">Certificación Verde 2024</p>
+                </div>
+
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-10 h-10 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-text-primary mb-2">Elección del Cliente</h3>
+                    <p class="text-sm text-text-secondary">98% Satisfacción 2024</p>
+                </div>
+            </div>
+
+            <!-- Press Mentions -->
+            <div class="bg-surface rounded-2xl p-8">
+                <h3 class="font-playfair text-2xl font-bold text-text-primary text-center mb-8">
+                    En los Medios
+                </h3>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="bg-white rounded-xl p-6 craft-shadow hover:craft-shadow-lg transition-all duration-300">
+                            <h4 class="font-bold text-text-primary mb-2">"Revolución Artesanal"</h4>
+                            <p class="text-text-secondary text-sm mb-4">
+                                "NoteCraft está redefiniendo lo que significa la personalización en el mundo de la papelería de lujo."
+                            </p>
+                            <div class="text-primary font-semibold text-sm">— ElComercio</div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="bg-white rounded-xl p-6 craft-shadow hover:craft-shadow-lg transition-all duration-300">
+                            <h4 class="font-bold text-text-primary mb-2">"Excelencia Sostenible"</h4>
+                            <p class="text-text-secondary text-sm mb-4">
+                                "Un ejemplo perfecto de cómo la tradición artesanal puede abrazar la sostenibilidad sin comprometer la calidad."
+                            </p>
+                            <div class="text-primary font-semibold text-sm">— Quillay</div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="bg-white rounded-xl p-6 craft-shadow hover:craft-shadow-lg transition-all duration-300">
+                            <h4 class="font-bold text-text-primary mb-2">"Futuro del Diseño"</h4>
+                            <p class="text-text-secondary text-sm mb-4">
+                                "La perfecta fusión entre tecnología digital y artesanía tradicional que está marcando tendencia."
+                            </p>
+                            <div class="text-primary font-semibold text-sm">— Presidente del Perú</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gradient-to-r from-primary to-accent">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-playfair text-4xl md:text-5xl font-bold text-white mb-6">
+                ¿Listo para Crear Tu Historia?
+            </h2>
+            <p class="text-xl text-secondary-100 mb-8">
+                Únete a miles de personas que ya han transformado su forma de planificar con una agenda verdaderamente única.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="custom_agenda_builder.html" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-secondary-100 transition-all duration-300 hover:scale-105">
+                    Crear Mi Agenda
+                </a>
+                <a href="gallery_inspiration.html" class="bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/30 transition-all duration-300 border border-white/30">
+                    Ver Inspiración
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-text-primary text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
+                        <span class="font-playfair text-xl font-bold">NoteCraft</span>
+                    </div>
+                    <p class="text-secondary-200 mb-6 max-w-md">
+                        Creamos agendas personalizadas que reflejan tu estilo único. Donde la organización se encuentra con el arte.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-secondary-300 hover:text-accent transition-craft">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-secondary-300 hover:text-accent transition-craft">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/></svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-secondary-300 hover:text-accent transition-craft">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-playfair text-lg font-semibold mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="custom_agenda_builder.html" class="text-secondary-300 hover:text-accent transition-craft">Crear Agenda</a></li>
+                        <li><a href="product_collections.html" class="text-secondary-300 hover:text-accent transition-craft">Colecciones</a></li>
+                        <li><a href="gallery_inspiration.html" class="text-secondary-300 hover:text-accent transition-craft">Galería</a></li>
+                        <li><a href="about_our_craft.html" class="text-secondary-300 hover:text-accent transition-craft">Nuestro Arte</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="font-playfair text-lg font-semibold mb-4">Soporte</h4>
+                    <ul class="space-y-2">
+                        <li><a href="javascript:void(0)" class="text-secondary-300 hover:text-accent transition-craft">Centro de Ayuda</a></li>
+                        <li><a href="javascript:void(0)" class="text-secondary-300 hover:text-accent transition-craft">Envíos</a></li>
+                        <li><a href="javascript:void(0)" class="text-secondary-300 hover:text-accent transition-craft">Devoluciones</a></li>
+                        <li><a href="javascript:void(0)" class="text-secondary-300 hover:text-accent transition-craft">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-secondary-700 mt-12 pt-8 text-center">
+                <p class="text-secondary-300">
+                    © 2025 NoteCraft. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for section navigation
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                const offsetTop = section.offsetTop - 80; // Account for fixed header
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.absolute.inset-0.z-0 img');
+            if (parallax) {
+                const speed = scrolled * 0.3;
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.card, .group').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Interactive timeline highlighting
+        const timelineItems = document.querySelectorAll('.absolute.left-1\\/2');
+        
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.pageYOffset + window.innerHeight / 2;
+            
+            timelineItems.forEach((item, index) => {
+                const itemTop = item.offsetTop;
+                const itemBottom = itemTop + item.offsetHeight;
+                
+                if (scrollPosition >= itemTop && scrollPosition <= itemBottom) {
+                    item.classList.add('animate-pulse');
+                } else {
+                    item.classList.remove('animate-pulse');
+                }
+            });
+        });
+
+        // Video play button interaction
+        document.querySelectorAll('button').forEach(button => {
+            if (button.querySelector('svg path[d*="8 5v10l8-5-8-5z"]')) {
+                button.addEventListener('click', () => {
+                    // Placeholder for video functionality
+                    alert('Video testimonial coming soon!');
+                });
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

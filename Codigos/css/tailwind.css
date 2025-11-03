@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary: #8B4513; /* saddle-brown */
+  --color-primary-50: #FDF8F4; /* very light brown */
+  --color-primary-100: #F5E6D3; /* light brown */
+  --color-primary-200: #E8C5A0; /* medium light brown */
+  --color-primary-300: #D4A574; /* medium brown */
+  --color-primary-400: #B8824A; /* darker medium brown */
+  --color-primary-500: #8B4513; /* saddle-brown - main */
+  --color-primary-600: #7A3C11; /* darker brown */
+  --color-primary-700: #68330F; /* dark brown */
+  --color-primary-800: #562A0D; /* very dark brown */
+  --color-primary-900: #44210A; /* darkest brown */
+
+  /* Secondary Colors */
+  --color-secondary: #D2B48C; /* tan */
+  --color-secondary-50: #FDFBF8; /* very light tan */
+  --color-secondary-100: #F7F0E6; /* light tan */
+  --color-secondary-200: #EDE0CC; /* medium light tan */
+  --color-secondary-300: #E2CFB3; /* medium tan */
+  --color-secondary-400: #DABE99; /* darker medium tan */
+  --color-secondary-500: #D2B48C; /* tan - main */
+  --color-secondary-600: #C5A67D; /* darker tan */
+  --color-secondary-700: #B8986E; /* dark tan */
+  --color-secondary-800: #AB8A5F; /* very dark tan */
+  --color-secondary-900: #9E7C50; /* darkest tan */
+
+  /* Accent Colors */
+  --color-accent: #CD853F; /* peru */
+  --color-accent-50: #FDF9F4; /* very light peru */
+  --color-accent-100: #F8EDDC; /* light peru */
+  --color-accent-200: #F0D7B8; /* medium light peru */
+  --color-accent-300: #E7C194; /* medium peru */
+  --color-accent-400: #DEAB70; /* darker medium peru */
+  --color-accent-500: #CD853F; /* peru - main */
+  --color-accent-600: #B87538; /* darker peru */
+  --color-accent-700: #A36531; /* dark peru */
+  --color-accent-800: #8E552A; /* very dark peru */
+  --color-accent-900: #794523; /* darkest peru */
+
+  /* Background Colors */
+  --color-background: #FEFEFE; /* almost white */
+  --color-surface: #F8F6F3; /* warm off-white */
+
+  /* Text Colors */
+  --color-text-primary: #2C1810; /* dark brown */
+  --color-text-secondary: #6B4423; /* medium brown */
+
+  /* Status Colors */
+  --color-success: #228B22; /* forest-green */
+  --color-success-50: #F0FDF0; /* very light green */
+  --color-success-100: #DCFCE7; /* light green */
+  --color-success-200: #BBF7D0; /* medium light green */
+  --color-success-300: #86EFAC; /* medium green */
+  --color-success-400: #4ADE80; /* darker medium green */
+  --color-success-500: #228B22; /* forest-green - main */
+  --color-success-600: #1E7A1E; /* darker green */
+  --color-success-700: #1A691A; /* dark green */
+  --color-success-800: #165816; /* very dark green */
+  --color-success-900: #124712; /* darkest green */
+
+  --color-warning: #DAA520; /* goldenrod */
+  --color-warning-50: #FEFCF0; /* very light goldenrod */
+  --color-warning-100: #FEF7E0; /* light goldenrod */
+  --color-warning-200: #FDECC8; /* medium light goldenrod */
+  --color-warning-300: #FCE1B0; /* medium goldenrod */
+  --color-warning-400: #FBD698; /* darker medium goldenrod */
+  --color-warning-500: #DAA520; /* goldenrod - main */
+  --color-warning-600: #C4941D; /* darker goldenrod */
+  --color-warning-700: #AE831A; /* dark goldenrod */
+  --color-warning-800: #987217; /* very dark goldenrod */
+  --color-warning-900: #826114; /* darkest goldenrod */
+
+  --color-error: #B22222; /* fire-brick */
+  --color-error-50: #FEF2F2; /* very light red */
+  --color-error-100: #FEE2E2; /* light red */
+  --color-error-200: #FECACA; /* medium light red */
+  --color-error-300: #FCA5A5; /* medium red */
+  --color-error-400: #F87171; /* darker medium red */
+  --color-error-500: #B22222; /* fire-brick - main */
+  --color-error-600: #A01E1E; /* darker red */
+  --color-error-700: #8E1A1A; /* dark red */
+  --color-error-800: #7C1616; /* very dark red */
+  --color-error-900: #6A1212; /* darkest red */
+}
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 ease-out hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-text-primary px-6 py-3 rounded-lg font-semibold transition-all duration-300 ease-out hover:bg-secondary-600 focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 ease-out hover:bg-accent-600 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2;
+  }
+
+  .card {
+    @apply bg-surface rounded-lg p-6 shadow-sm border border-secondary-200;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-secondary-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-300 ease-out;
+  }
+
+  .craft-shadow {
+    box-shadow: 0 4px 20px rgba(139, 69, 19, 0.1);
+  }
+}
+
+@layer utilities {
+  .text-gradient-primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .transition-craft {
+    transition: all 300ms ease-out;
+  }
+}

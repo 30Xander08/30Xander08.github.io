@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creador de Agendas Personalizadas - NoteCraft</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <meta name="description" content="Diseña tu agenda personalizada con nuestro estudio interactivo. Visualización en tiempo real, plantillas exclusivas y opciones de personalización ilimitadas.">
+  
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fagendacra6365back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-background">
+    <!-- Navigation Header -->
+    <nav class="bg-surface/95 backdrop-blur-sm fixed w-full top-0 z-50 border-b border-secondary-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="homepage.html" class="flex items-center space-x-2">
+                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
+                        <span class="font-playfair text-xl font-bold text-primary">NoteCraft</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-primary transition-craft">Inicio</a>
+                    <a href="custom_agenda_builder.html" class="text-text-primary hover:text-primary transition-craft font-medium">Crear Agenda</a>
+                    <a href="product_collections.html" class="text-text-secondary hover:text-primary transition-craft">Colecciones</a>
+                    <a href="gallery_inspiration.html" class="text-text-secondary hover:text-primary transition-craft">Galería</a>
+                    <a href="about_our_craft.html" class="text-text-secondary hover:text-primary transition-craft">Nuestro Arte</a>
+                    <a href="customer_dashboard.html" class="btn-primary">Mi Cuenta</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-text-primary hover:text-primary transition-craft">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-surface border-t border-secondary-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="homepage.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-craft">Inicio</a>
+                <a href="custom_agenda_builder.html" class="block px-3 py-2 text-text-primary font-medium">Crear Agenda</a>
+                <a href="product_collections.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-craft">Colecciones</a>
+                <a href="gallery_inspiration.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-craft">Galería</a>
+                <a href="about_our_craft.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-craft">Nuestro Arte</a>
+                <a href="customer_dashboard.html" class="block px-3 py-2 text-primary font-medium">Mi Cuenta</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Progress Bar -->
+    <div class="fixed top-16 left-0 w-full bg-secondary-100 h-1 z-40">
+        <div id="progress-bar" class="bg-primary h-full transition-all duration-300" style="width: 25%"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="pt-20 min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Header Section -->
+            <div class="text-center mb-12">
+                <h1 class="font-playfair text-4xl md:text-5xl font-bold text-text-primary mb-4">
+                    Crea Tu Agenda Perfecta
+                </h1>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Diseña una agenda única que refleje tu estilo personal. Visualiza cada cambio en tiempo real y crea algo verdaderamente tuyo.
+                </p>
+            </div>
+
+            <!-- Main Builder Interface -->
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Left Panel - Customization Options -->
+                <div class="lg:col-span-1 space-y-6">
+                    <!-- Step Indicator -->
+                    <div class="card">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-playfair text-lg font-semibold text-text-primary">Paso 1 de 4</h3>
+                            <button id="save-design-btn" class="text-primary hover:text-primary-600 transition-craft">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center text-primary">
+                                <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white text-sm font-semibold mr-3">1</div>
+                                <span class="font-medium">Plantilla Base</span>
+                            </div>
+                            <div class="flex items-center text-text-secondary">
+                                <div class="w-6 h-6 bg-secondary-300 rounded-full flex items-center justify-center text-white text-sm font-semibold mr-3">2</div>
+                                <span>Personalización</span>
+                            </div>
+                            <div class="flex items-center text-text-secondary">
+                                <div class="w-6 h-6 bg-secondary-300 rounded-full flex items-center justify-center text-white text-sm font-semibold mr-3">3</div>
+                                <span>Detalles Finales</span>
+                            </div>
+                            <div class="flex items-center text-text-secondary">
+                                <div class="w-6 h-6 bg-secondary-300 rounded-full flex items-center justify-center text-white text-sm font-semibold mr-3">4</div>
+                                <span>Confirmación</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Template Selection -->
+                    <div class="card">
+                        <h3 class="font-playfair text-lg font-semibold text-text-primary mb-4">Plantillas Base</h3>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="template-option active cursor-pointer border-2 border-primary rounded-lg p-3 hover:border-primary-600 transition-craft" data-template="executive">
+                                <img src="https://images.unsplash.com/photo-1557170334-a9632e77c6e4" 
+                                     alt="Elegant executive planner template with leather texture and gold accents" 
+                                     class="w-full h-20 object-cover rounded mb-2"
+                                     onerror="this.src='https://images.pexels.com/photos/6373478/pexels-photo-6373478.jpeg?auto=compress&cs=tinysrgb&w=300'; this.onerror=null;">
+                                <p class="text-sm font-medium text-text-primary">Ejecutiva</p>
+                                <p class="text-xs text-text-secondary">Elegante y profesional</p>
+                            </div>
+                            <div class="template-option cursor-pointer border-2 border-secondary-300 rounded-lg p-3 hover:border-primary-600 transition-craft" data-template="creative">
+                                <img src="https://images.unsplash.com/photo-1521667427778-cbb9f8622ac4" 
+                                     alt="Creative planner template with artistic watercolor design and colorful elements" 
+                                     class="w-full h-20 object-cover rounded mb-2"
+                                     onerror="this.src='https://images.pixabay.com/photo/2017/09/05/10/20/business-2717063_300.jpg'; this.onerror=null;">
+                                <p class="text-sm font-medium text-text-primary">Creativa</p>
+                                <p class="text-xs text-text-secondary">Artística e inspiradora</p>
+                            </div>
+                            <div class="template-option cursor-pointer border-2 border-secondary-300 rounded-lg p-3 hover:border-primary-600 transition-craft" data-template="wellness">
+                                <img src="https://images.unsplash.com/photo-1609354980155-b69c37a91766" 
+                                     alt="Wellness planner template with natural elements and mindfulness design" 
+                                     class="w-full h-20 object-cover rounded mb-2"
+                                     onerror="this.src='https://images.pexels.com/photos/6373478/pexels-photo-6373478.jpeg?auto=compress&cs=tinysrgb&w=300'; this.onerror=null;">
+                                <p class="text-sm font-medium text-text-primary">Bienestar</p>
+                                <p class="text-xs text-text-secondary">Equilibrio y consciencia</p>
+                            </div>
+                            <div class="template-option cursor-pointer border-2 border-secondary-300 rounded-lg p-3 hover:border-primary-600 transition-craft" data-template="student">
+                                <img src="https://images.unsplash.com/photo-1654960762171-019bb3880730" 
+                                     alt="Student planner template with academic layout and study-focused design" 
+                                     class="w-full h-20 object-cover rounded mb-2"
+                                     onerror="this.src='https://images.pixabay.com/photo/2016/03/27/19/32/book-1283865_300.jpg'; this.onerror=null;">
+                                <p class="text-sm font-medium text-text-primary">Estudiante</p>
+                                <p class="text-xs text-text-secondary">Académica y funcional</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Color Palette -->
+                    <div class="card">
+                        <h3 class="font-playfair text-lg font-semibold text-text-primary mb-4">Paleta de Colores</h3>
+                        <div class="grid grid-cols-6 gap-2">
+                            <button class="color-option active w-8 h-8 rounded-full border-2 border-primary hover:scale-110 transition-all duration-200" 
+                                    style="background-color: #8B4513" data-color="primary"></button>
+                            <button class="color-option w-8 h-8 rounded-full border-2 border-secondary-300 hover:scale-110 transition-all duration-200" 
+                                    style="background-color: #CD853F" data-color="accent"></button>
+                            <button class="color-option w-8 h-8 rounded-full border-2 border-secondary-300 hover:scale-110 transition-all duration-200" 
+                                    style="background-color: #D2B48C" data-color="secondary"></button>
+                            <button class="color-option w-8 h-8 rounded-full border-2 border-secondary-300 hover:scale-110 transition-all duration-200" 
+                                    style="background-color: #228B22" data-color="success"></button>
+                            <button class="color-option w-8 h-8 rounded-full border-2 border-secondary-300 hover:scale-110 transition-all duration-200" 
+                                    style="background-color: #B22222" data-color="error"></button>
+                            <button class="color-option w-8 h-8 rounded-full border-2 border-secondary-300 hover:scale-110 transition-all duration-200" 
+                                    style="background-color: #2C1810" data-color="dark"></button>
+                        </div>
+                    </div>
+
+                    <!-- Size Selection -->
+                    <div class="card">
+                        <h3 class="font-playfair text-lg font-semibold text-text-primary mb-4">Tamaño</h3>
+                        <div class="space-y-2">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="radio" name="size" value="a5" class="mr-3 text-primary focus:ring-primary" checked>
+                                <span class="text-text-primary">A5 (14.8 × 21 cm) - Portátil</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="radio" name="size" value="a4" class="mr-3 text-primary focus:ring-primary">
+                                <span class="text-text-primary">A4 (21 × 29.7 cm) - Estándar</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="radio" name="size" value="pocket" class="mr-3 text-primary focus:ring-primary">
+                                <span class="text-text-primary">Bolsillo (9 × 14 cm) - Compacto</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Personalization -->
+                    <div class="card">
+                        <h3 class="font-playfair text-lg font-semibold text-text-primary mb-4">Personalización</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Nombre o Iniciales</label>
+                                <input type="text" id="personalization-text" placeholder="Ej: María González" 
+                                       class="input-field" maxlength="30">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Posición del Texto</label>
+                                <select class="input-field" id="text-position">
+                                    <option value="center">Centro</option>
+                                    <option value="bottom-right">Esquina Inferior Derecha</option>
+                                    <option value="bottom-left">Esquina Inferior Izquierda</option>
+                                    <option value="top-center">Parte Superior Central</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Fuente</label>
+                                <select class="input-field" id="font-family">
+                                    <option value="playfair">Playfair Display (Elegante)</option>
+                                    <option value="inter">Inter (Moderna)</option>
+                                    <option value="script">Script (Manuscrita)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center Panel - Live Preview -->
+                <div class="lg:col-span-1">
+                    <div class="sticky top-24">
+                        <div class="card">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-playfair text-lg font-semibold text-text-primary">Vista Previa</h3>
+                                <div class="flex space-x-2">
+                                    <button id="undo-btn" class="p-2 text-text-secondary hover:text-primary transition-craft" title="Deshacer">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path>
+                                        </svg>
+                                    </button>
+                                    <button id="redo-btn" class="p-2 text-text-secondary hover:text-primary transition-craft" title="Rehacer">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 10h-10a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Preview Container -->
+                            <div class="bg-secondary-50 rounded-lg p-6 mb-4">
+                                <div id="agenda-preview" class="mx-auto bg-white rounded-lg craft-shadow transition-all duration-300" 
+                                     style="width: 200px; height: 280px; position: relative; overflow: hidden;">
+                                    <!-- Cover Design -->
+                                    <div id="cover-design" class="w-full h-full bg-gradient-to-br from-primary-100 to-primary-200 relative">
+                                        <!-- Template Pattern -->
+                                        <div id="template-pattern" class="absolute inset-0 opacity-20">
+                                            <svg class="w-full h-full" viewBox="0 0 200 280" fill="none">
+                                                <pattern id="executive-pattern" patternUnits="userSpaceOnUse" width="40" height="40">
+                                                    <rect width="40" height="40" fill="none"/>
+                                                    <circle cx="20" cy="20" r="2" fill="currentColor" opacity="0.3"/>
+                                                </pattern>
+                                                <rect width="200" height="280" fill="url(#executive-pattern)"/>
+                                            </svg>
+                                        </div>
+                                        
+                                        <!-- Personalization Text -->
+                                        <div id="preview-text" class="absolute inset-0 flex items-center justify-center">
+                                            <span class="font-playfair text-primary font-semibold text-lg text-center px-4">
+                                                Mi Agenda 2025
+                                            </span>
+                                        </div>
+                                        
+                                        <!-- Decorative Elements -->
+                                        <div class="absolute top-4 right-4 w-8 h-8 border-2 border-primary-300 rounded-full opacity-60"></div>
+                                        <div class="absolute bottom-4 left-4 w-6 h-6 border-2 border-primary-300 rounded opacity-40"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Preview Controls -->
+                            <div class="flex justify-center space-x-2 mb-4">
+                                <button id="preview-front" class="btn-primary text-sm px-4 py-2">Portada</button>
+                                <button id="preview-inside" class="btn-secondary text-sm px-4 py-2">Interior</button>
+                            </div>
+
+                            <!-- Share Preview -->
+                            <div class="flex justify-center">
+                                <button id="share-design" class="text-primary hover:text-primary-600 transition-craft flex items-center">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
+                                    </svg>
+                                    Compartir Diseño
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Panel - Pricing & Actions -->
+                <div class="lg:col-span-1 space-y-6">
+                    <!-- Pricing Summary -->
+                    <div class="card">
+                        <h3 class="font-playfair text-lg font-semibold text-text-primary mb-4">Resumen de Precio</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Agenda base</span>
+                                <span class="text-text-primary font-medium">S/.117</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Personalización</span>
+                                <span class="text-text-primary font-medium">S/.30</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Tamaño premium</span>
+                                <span class="text-text-primary font-medium">S/.0</span>
+                            </div>
+                            <div class="border-t border-secondary-200 pt-3">
+                                <div class="flex justify-between">
+                                    <span class="font-semibold text-text-primary">Total</span>
+                                    <span class="font-bold text-primary text-xl">S/.150</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Options -->
+                    <div class="card">
+                        <h3 class="font-playfair text-lg font-semibold text-text-primary mb-4">Opciones de Envío</h3>
+                        <div class="space-y-3">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="radio" name="shipping" value="standard" class="mr-3 text-primary focus:ring-primary" checked>
+                                <div class="flex-1">
+                                    <div class="text-text-primary font-medium">Envío Estándar</div>
+                                    <div class="text-text-secondary text-sm">5-7 días laborables - Gratis</div>
+                                </div>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="radio" name="shipping" value="express" class="mr-3 text-primary focus:ring-primary">
+                                <div class="flex-1">
+                                    <div class="text-text-primary font-medium">Envío Express</div>
+                                    <div class="text-text-secondary text-sm">2-3 días laborables - S/.40</div>
+                                </div>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="radio" name="shipping" value="overnight" class="mr-3 text-primary focus:ring-primary">
+                                <div class="flex-1">
+                                    <div class="text-text-primary font-medium">Envío 24h</div>
+                                    <div class="text-text-secondary text-sm">Entrega al día siguiente - S/.80</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="space-y-4">
+                        <button id="add-to-cart" class="w-full btn-primary text-lg py-4 hover:scale-105 transition-all duration-300">
+                            Añadir al Carrito
+                        </button>
+                        <button id="save-for-later" class="w-full btn-secondary hover:scale-105 transition-all duration-300">
+                            Guardar para Después
+                        </button>
+                    </div>
+
+                    <!-- Help & Support -->
+                    <div class="card">
+                        <h3 class="font-playfair text-lg font-semibold text-text-primary mb-4">¿Necesitas Ayuda?</h3>
+                        <div class="space-y-3">
+                            <a href="javascript:void(0)" class="flex items-center text-text-secondary hover:text-primary transition-craft">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                Guía de Personalización
+                            </a>
+                            <a href="javascript:void(0)" class="flex items-center text-text-secondary hover:text-primary transition-craft">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-2-2V10a2 2 0 012-2h8z"></path>
+                                </svg>
+                                Chat en Vivo
+                            </a>
+                            <a href="javascript:void(0)" class="flex items-center text-text-secondary hover:text-primary transition-craft">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                                Llamar Ahora
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Customer Reviews -->
+                    <div class="card">
+                        <h3 class="font-playfair text-lg font-semibold text-text-primary mb-4">Lo Que Dicen Nuestros Clientes</h3>
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-primary pl-4">
+                                <p class="text-text-secondary text-sm mb-2">"El proceso de personalización es increíblemente intuitivo. Mi agenda quedó exactamente como la imaginé."</p>
+                                <div class="flex items-center">
+                                    <div class="flex text-warning text-xs mr-2">
+                                        <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                        <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                        <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                        <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                        <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                    </div>
+                                    <span class="text-text-secondary text-xs">- Carmen R.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-text-primary text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
+                        <span class="font-playfair text-xl font-bold">NoteCraft</span>
+                    </div>
+                    <p class="text-secondary-200 mb-6 max-w-md">
+                        Creamos agendas personalizadas que reflejan tu estilo único. Donde la organización se encuentra con el arte.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-secondary-300 hover:text-accent transition-craft">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-secondary-300 hover:text-accent transition-craft">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/></svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-secondary-300 hover:text-accent transition-craft">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-playfair text-lg font-semibold mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="custom_agenda_builder.html" class="text-secondary-300 hover:text-accent transition-craft">Crear Agenda</a></li>
+                        <li><a href="product_collections.html" class="text-secondary-300 hover:text-accent transition-craft">Colecciones</a></li>
+                        <li><a href="gallery_inspiration.html" class="text-secondary-300 hover:text-accent transition-craft">Galería</a></li>
+                        <li><a href="about_our_craft.html" class="text-secondary-300 hover:text-accent transition-craft">Nuestro Arte</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="font-playfair text-lg font-semibold mb-4">Soporte</h4>
+                    <ul class="space-y-2">
+                        <li><a href="javascript:void(0)" class="text-secondary-300 hover:text-accent transition-craft">Centro de Ayuda</a></li>
+                        <li><a href="javascript:void(0)" class="text-secondary-300 hover:text-accent transition-craft">Envíos</a></li>
+                        <li><a href="javascript:void(0)" class="text-secondary-300 hover:text-accent transition-craft">Devoluciones</a></li>
+                        <li><a href="javascript:void(0)" class="text-secondary-300 hover:text-accent transition-craft">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-secondary-700 mt-12 pt-8 text-center">
+                <p class="text-secondary-300">
+                    © 2025 NoteCraft. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Template selection
+        document.querySelectorAll('.template-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove active class from all options
+                document.querySelectorAll('.template-option').forEach(opt => {
+                    opt.classList.remove('active', 'border-primary');
+                    opt.classList.add('border-secondary-300');
+                });
+                
+                // Add active class to clicked option
+                this.classList.add('active', 'border-primary');
+                this.classList.remove('border-secondary-300');
+                
+                // Update preview
+                updatePreview();
+                updateProgress(50);
+            });
+        });
+
+        // Color selection
+        document.querySelectorAll('.color-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove active class from all options
+                document.querySelectorAll('.color-option').forEach(opt => {
+                    opt.classList.remove('active', 'border-primary');
+                    opt.classList.add('border-secondary-300');
+                });
+                
+                // Add active class to clicked option
+                this.classList.add('active', 'border-primary');
+                this.classList.remove('border-secondary-300');
+                
+                // Update preview
+                updatePreview();
+            });
+        });
+
+        // Personalization text input
+        document.getElementById('personalization-text').addEventListener('input', function() {
+            updatePreview();
+        });
+
+        // Font family change
+        document.getElementById('font-family').addEventListener('change', function() {
+            updatePreview();
+        });
+
+        // Text position change
+        document.getElementById('text-position').addEventListener('change', function() {
+            updatePreview();
+        });
+
+        // Size selection
+        document.querySelectorAll('input[name="size"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                updatePreview();
+                updatePricing();
+            });
+        });
+
+        // Shipping selection
+        document.querySelectorAll('input[name="shipping"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                updatePricing();
+            });
+        });
+
+        // Update preview function
+        function updatePreview() {
+            const selectedTemplate = document.querySelector('.template-option.active')?.dataset.template || 'executive';
+            const selectedColor = document.querySelector('.color-option.active')?.dataset.color || 'primary';
+            const personalizationText = document.getElementById('personalization-text').value || 'Mi Agenda 2025';
+            const fontFamily = document.getElementById('font-family').value;
+            const textPosition = document.getElementById('text-position').value;
+            const selectedSize = document.querySelector('input[name="size"]:checked').value;
+
+            const coverDesign = document.getElementById('cover-design');
+            const previewText = document.getElementById('preview-text');
+            const agendaPreview = document.getElementById('agenda-preview');
+
+            // Update size
+            switch(selectedSize) {
+                case 'a4':
+                    agendaPreview.style.width = '210px';
+                    agendaPreview.style.height = '297px';
+                    break;
+                case 'pocket':
+                    agendaPreview.style.width = '140px';
+                    agendaPreview.style.height = '200px';
+                    break;
+                default: // a5
+                    agendaPreview.style.width = '200px';
+                    agendaPreview.style.height = '280px';
+            }
+
+            // Update color scheme
+            const colorMap = {
+                'primary': 'from-primary-100 to-primary-200',
+                'accent': 'from-accent-100 to-accent-200',
+                'secondary': 'from-secondary-100 to-secondary-200',
+                'success': 'from-success-100 to-success-200',
+                'error': 'from-error-100 to-error-200',
+                'dark': 'from-gray-700 to-gray-800'
+            };
+
+            coverDesign.className = `w-full h-full bg-gradient-to-br ${colorMap[selectedColor]} relative transition-all duration-300`;
+
+            // Update text
+            const textElement = previewText.querySelector('span');
+            textElement.textContent = personalizationText;
+
+            // Update font
+            const fontMap = {
+                'playfair': 'font-playfair',
+                'inter': 'font-inter',
+                'script': 'font-serif'
+            };
+            textElement.className = `${fontMap[fontFamily]} text-primary font-semibold text-lg text-center px-4`;
+
+            // Update text position
+            const positionMap = {
+                'center': 'inset-0 flex items-center justify-center',
+                'bottom-right': 'bottom-4 right-4 flex items-end justify-end',
+                'bottom-left': 'bottom-4 left-4 flex items-end justify-start',
+                'top-center': 'top-4 left-0 right-0 flex items-start justify-center'
+            };
+            previewText.className = `absolute ${positionMap[textPosition]}`;
+
+            // Update template pattern
+            updateTemplatePattern(selectedTemplate);
+        }
+
+        // Update template pattern
+        function updateTemplatePattern(template) {
+            const templatePattern = document.getElementById('template-pattern');
+            
+            const patterns = {
+                'executive': `
+                    <svg class="w-full h-full" viewBox="0 0 200 280" fill="none">
+                        <pattern id="executive-pattern" patternUnits="userSpaceOnUse" width="40" height="40">
+                            <rect width="40" height="40" fill="none"/>
+                            <circle cx="20" cy="20" r="2" fill="currentColor" opacity="0.3"/>
+                        </pattern>
+                        <rect width="200" height="280" fill="url(#executive-pattern)"/>
+                    </svg>
+                `,
+                'creative': `
+                    <svg class="w-full h-full" viewBox="0 0 200 280" fill="none">
+                        <pattern id="creative-pattern" patternUnits="userSpaceOnUse" width="60" height="60">
+                            <rect width="60" height="60" fill="none"/>
+                            <path d="M30 10 L50 30 L30 50 L10 30 Z" fill="currentColor" opacity="0.2"/>
+                        </pattern>
+                        <rect width="200" height="280" fill="url(#creative-pattern)"/>
+                    </svg>
+                `,
+                'wellness': `
+                    <svg class="w-full h-full" viewBox="0 0 200 280" fill="none">
+                        <pattern id="wellness-pattern" patternUnits="userSpaceOnUse" width="50" height="50">
+                            <rect width="50" height="50" fill="none"/>
+                            <circle cx="25" cy="25" r="15" fill="none" stroke="currentColor" opacity="0.2" stroke-width="1"/>
+                        </pattern>
+                        <rect width="200" height="280" fill="url(#wellness-pattern)"/>
+                    </svg>
+                `,
+                'student': `
+                    <svg class="w-full h-full" viewBox="0 0 200 280" fill="none">
+                        <pattern id="student-pattern" patternUnits="userSpaceOnUse" width="30" height="30">
+                            <rect width="30" height="30" fill="none"/>
+                            <rect x="5" y="5" width="20" height="20" fill="none" stroke="currentColor" opacity="0.2" stroke-width="1"/>
+                        </pattern>
+                        <rect width="200" height="280" fill="url(#student-pattern)"/>
+                    </svg>
+                `
+            };
+
+            templatePattern.innerHTML = patterns[template] || patterns['executive'];
+        }
+
+        // Update pricing
+        function updatePricing() {
+            const selectedSize = document.querySelector('input[name="size"]:checked').value;
+            const selectedShipping = document.querySelector('input[name="shipping"]:checked').value;
+            
+            let basePrice = 29.90;
+            let sizePrice = 0;
+            let shippingPrice = 0;
+            
+            // Size pricing
+            if (selectedSize === 'a4') {
+                sizePrice = 5.00;
+            } else if (selectedSize === 'pocket') {
+                sizePrice = -3.00;
+            }
+            
+            // Shipping pricing
+            if (selectedShipping === 'express') {
+                shippingPrice = 9.90;
+            } else if (selectedShipping === 'overnight') {
+                shippingPrice = 19.90;
+            }
+            
+            const personalizationPrice = 8.00;
+            const total = basePrice + sizePrice + personalizationPrice + shippingPrice;
+            
+            // Update display (this would normally update the actual pricing elements)
+            console.log(`Total: €${total.toFixed(2)}`);
+        }
+
+        // Update progress bar
+        function updateProgress(percentage) {
+            const progressBar = document.getElementById('progress-bar');
+            progressBar.style.width = `${percentage}%`;
+        }
+
+        // Save design functionality
+        document.getElementById('save-design-btn').addEventListener('click', function() {
+            // This would normally save to user account
+            alert('Diseño guardado en tu cuenta');
+        });
+
+        // Add to cart functionality
+        document.getElementById('add-to-cart').addEventListener('click', function() {
+            // This would normally add to cart
+            alert('Agenda añadida al carrito');
+        });
+
+        // Save for later functionality
+        document.getElementById('save-for-later').addEventListener('click', function() {
+            // This would normally save to wishlist
+            alert('Diseño guardado para después');
+        });
+
+        // Share design functionality
+        document.getElementById('share-design').addEventListener('click', function() {
+            // This would normally open share dialog
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Mi Diseño de Agenda Personalizada',
+                    text: 'Mira el diseño de agenda que he creado en Agenda Craft',
+                    url: window.location.href
+                });
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                const url = window.location.href;
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('Enlace copiado al portapapeles');
+                });
+            }
+        });
+
+        // Preview mode toggle
+        document.getElementById('preview-front').addEventListener('click', function() {
+            this.classList.add('btn-primary');
+            this.classList.remove('btn-secondary');
+            document.getElementById('preview-inside').classList.add('btn-secondary');
+            document.getElementById('preview-inside').classList.remove('btn-primary');
+            // Show front cover preview (current view)
+        });
+
+        document.getElementById('preview-inside').addEventListener('click', function() {
+            this.classList.add('btn-primary');
+            this.classList.remove('btn-secondary');
+            document.getElementById('preview-front').classList.add('btn-secondary');
+            document.getElementById('preview-front').classList.remove('btn-primary');
+            // This would show inside pages preview
+            alert('Vista previa del interior próximamente');
+        });
+
+        // Undo/Redo functionality (basic implementation)
+        let designHistory = [];
+        let currentHistoryIndex = -1;
+
+        function saveToHistory() {
+            const currentState = {
+                template: document.querySelector('.template-option.active')?.dataset.template,
+                color: document.querySelector('.color-option.active')?.dataset.color,
+                text: document.getElementById('personalization-text').value,
+                font: document.getElementById('font-family').value,
+                position: document.getElementById('text-position').value,
+                size: document.querySelector('input[name="size"]:checked').value
+            };
+            
+            designHistory = designHistory.slice(0, currentHistoryIndex + 1);
+            designHistory.push(currentState);
+            currentHistoryIndex++;
+        }
+
+        document.getElementById('undo-btn').addEventListener('click', function() {
+            if (currentHistoryIndex > 0) {
+                currentHistoryIndex--;
+                // Restore previous state
+                console.log('Undo:', designHistory[currentHistoryIndex]);
+            }
+        });
+
+        document.getElementById('redo-btn').addEventListener('click', function() {
+            if (currentHistoryIndex < designHistory.length - 1) {
+                currentHistoryIndex++;
+                // Restore next state
+                console.log('Redo:', designHistory[currentHistoryIndex]);
+            }
+        });
+
+        // Initialize
+        updatePreview();
+        updatePricing();
+        saveToHistory();
+
+        // Auto-save progress
+        setInterval(() => {
+            // This would normally auto-save to server
+            console.log('Auto-saving design...');
+        }, 30000); // Every 30 seconds
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
